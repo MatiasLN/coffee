@@ -18,7 +18,10 @@ const UploadForm = () => {
 
   return (
     <form>
-      <input type="file" onChange={changeHandler} />
+      <label htmlFor="file-upload" className="custom-file-upload">
+        Last opp bilde
+      </label>
+      <input id="file-upload" type="file" onChange={changeHandler} />
       <div className="output">
         {error && <div className="error">{error}</div>}
         {file && <div>{file.name}</div>}

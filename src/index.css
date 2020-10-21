@@ -40,6 +40,7 @@ label input {
   width: 0;
   opacity: 0;
 }
+/*
 label {
   display: block;
   width: 30px;
@@ -55,7 +56,25 @@ label {
 label:hover {
   background: var(--primary);
   color: white;
+} */
+
+input[type="file"] {
+  display: none;
 }
+.custom-file-upload {
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.custom-file-upload:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
 .output {
   height: 60px;
   font-size: 0.8rem;
