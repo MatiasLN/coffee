@@ -1,8 +1,8 @@
 import React from "react";
 import useFirestore from "../hooks/useFirestore";
+import placeholderImg from "../images/placeholder.jpeg";
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs } = useFirestore("images");
-  console.log(docs);
   return (
     <div className="img-grid">
       {docs &&
@@ -12,7 +12,7 @@ const ImageGrid = ({ setSelectedImg }) => {
             key={doc.id}
             onClick={() => setSelectedImg(doc.url)}
           >
-            <img src={doc.url} alt="Bilde av kaffetype" />
+            <img src={placeholderImg} alt={doc.url} />
           </div>
         ))}
     </div>
