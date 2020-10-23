@@ -4,6 +4,7 @@ import {
   projectFirestore,
   timestamp,
 } from "../firebase/config";
+import { title } from "../comps/UploadForm";
 
 const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
@@ -27,7 +28,9 @@ const useStorage = (file) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timestamp();
-        collectionRef.add({ url, createdAt });
+        console.log(title);
+        const title = localStorage.getItem("title");
+        collectionRef.add({ url, createdAt, title });
         setUrl(url);
       }
     );

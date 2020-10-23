@@ -13,6 +13,8 @@ const ImageGrid = ({ setSelectedImg }) => {
             onClick={() => setSelectedImg(doc.url)}
           >
             <img src={placeholderImg} alt={doc.url} />
+            <h2>{doc.title}</h2>
+            <p>Rating: {doc.id}</p>
           </div>
         ))}
     </div>

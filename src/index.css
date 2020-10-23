@@ -43,6 +43,10 @@ body {
 form {
   margin: 30px auto 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  grid-gap: 10px;
 }
 label input {
   height: 0;
@@ -50,14 +54,28 @@ label input {
   opacity: 0;
 }
 
+input[type="text"] {
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 12px 14px;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+input[type="text"]::placeholder {
+  color: lightgray;
+}
+
 input[type="file"] {
   display: none;
 }
+
 .custom-file-upload {
   border: 1px solid var(--primary);
   border-radius: 4px;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 10px 14px;
   cursor: pointer;
   color: var(--primary);
 }
@@ -103,11 +121,11 @@ input[type="file"] {
 .img-wrap::after {
   content: "";
   display: block;
-  padding-bottom: 100%;
+  /* padding-bottom: 100%; */
 }
 
 .img-wrap img {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   height: 100%;
   object-fit: cover;
