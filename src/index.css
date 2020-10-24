@@ -197,3 +197,9 @@ input[type="file"] {
 .course--reviews--form .course--stars {
   margin-bottom: 10px;
 }
+
+.rating {
+  display: block;
+  width: 100%;
+  height: 50px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Star = ({ isSelected, setRating }) => (
+const Star = ({ isSelected, setRating, click }) => (
   <li className={isSelected ? "selected" : null} onClick={setRating}>
     <svg x="0px" y="0px" viewBox="0 0 16 15" className="star">
       <path
