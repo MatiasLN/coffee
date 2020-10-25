@@ -9,6 +9,7 @@ const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
+  const [isActive, setIsActive] = useState({ display: "none" });
 
   useEffect(() => {
     // ref
@@ -28,9 +29,10 @@ const useStorage = (file) => {
         const url = await storageRef.getDownloadURL();
         const createdAt = timestamp();
         const title = localStorage.getItem("title");
-        const star = 0;
+        const star = localStorage.getItem("rating");
         collectionRef.add({ url, createdAt, title, star });
         setUrl(url);
+        document.querySelector("form").style.display = "none";
       }
     );
   }, [file]);

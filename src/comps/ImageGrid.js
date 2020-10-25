@@ -6,21 +6,19 @@ import StarRating from "./StarRating";
 
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs } = useFirestore("images");
-  const [rating, setRating] = useState(0);
+  const [newRating, setRating] = useState(0);
   const [id, setCurrentId] = useState(0);
 
   const handleSetRating = (newRating) => {
-    console.log(localStorage.getItem("id"));
-    if (newRating === rating) {
-      setRating(0);
-    } else {
-      setRating(newRating);
-    }
+    let updatediId = localStorage.getItem("id");
+    console.log(updatediId);
+    setRating(newRating);
+    localStorage.setItem("rating", newRating);
+    let updatedRating = localStorage.getItem("rating", newRating);
+    console.log(newRating);
 
-    const collectionRef = projectFirestore
-      .collection("images")
-      .doc(localStorage.getItem("id"));
-    collectionRef.update({ star: newRating });
+    const collectionRef = projectFirestore.collection("images").doc(updatediId);
+    collectionRef.update({ star: updatedRating });
   };
 
   return (
@@ -32,15 +30,18 @@ const ImageGrid = ({ setSelectedImg }) => {
             key={doc.id}
             onClick={() => {
               setSelectedImg(doc.url);
+              localStorage.setItem("currentStar", doc.star);
             }}
           >
-            <img src={doc.url} alt={doc.url} />
+            {/* <img src={doc.url} alt={doc.url} /> */}
+            {<img src={placeholderImg} alt={doc.id} />}
             <h2>{doc.title}</h2>
             <div
               className="rating"
               onClick={() => {
                 localStorage.setItem("id", doc.id);
                 setCurrentId(doc.id);
+                setRating(doc.star);
               }}
               data={doc.id}
             >
