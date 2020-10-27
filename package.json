@@ -1,6 +1,6 @@
 {
   "name": "coffee",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "private": true,
   "homepage": "https://matiasln.github.io/coffee",
   "dependencies": {
