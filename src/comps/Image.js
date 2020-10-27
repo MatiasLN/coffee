@@ -7,7 +7,7 @@ const Image = ({ data }) => {
   if (LOCAL_DOMAINS.includes(window.location.hostname)) {
     return <img src={placeholderImg} alt={data.id} />;
   } else {
-    return <img src={data.url} alt={data.id} />;
+    return <img src={data} alt={data.id} />;
   }
 };
 
