@@ -3,10 +3,11 @@ import { projectFirestore } from "../firebase/config";
 import useFirestore from "../hooks/useFirestore";
 import placeholderImg from "../images/placeholder.jpeg";
 import StarRating from "./StarRating";
+import useLocalhost from "../hooks/useLocalhost";
 
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs } = useFirestore("images");
-  const [newRating, setRating] = useState(0);
+  const [newRating, setRating] = useState(null);
   const [id, setCurrentId] = useState(0);
 
   const handleSetRating = (newRating) => {
@@ -33,8 +34,12 @@ const ImageGrid = ({ setSelectedImg }) => {
               localStorage.setItem("currentStar", doc.star);
             }}
           >
-            {/* <img src={doc.url} alt={doc.url} /> */}
-            {<img src={placeholderImg} alt={doc.id} />}
+            {useLocalhost ? (
+              <img src={placeholderImg} alt={doc.id} />
+            ) : (
+              <img src={doc.url} alt={doc.id} />
+            )}
+            {/* <img src={placeholderImg} alt={doc.id} /> */}
             <h2>{doc.title}</h2>
             <div
               className="rating"
