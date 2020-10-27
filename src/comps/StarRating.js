@@ -18,7 +18,7 @@ function StarRating({ rating, setRating }) {
     return stars;
   };
 
-  return <ul className="course--stars">{renderStars()}</ul>;
+  return <ul className="stars">{renderStars()}</ul>;
 }
 
 export default StarRating;

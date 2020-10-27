@@ -114,10 +114,17 @@ input[type="file"] {
   margin: 0 auto 0;
   padding: 10px 15px;
   background-color: var(--primary);
-  border: none;
+  border: 1px solid var(--primary);
   border-radius: 4px;
   font-size: 1.2rem;
   font-family: "Noto Serif";
+  color: var(--secondary);
+}
+
+.addNewBtn:hover {
+  border: 1px solid var(--primary);
+  background: none;
+  color: var(--primary);
 }
 
 /* progress bar styles */
@@ -141,18 +148,16 @@ input[type="file"] {
   }
 }
 
-.img-wrap {
+.image {
   position: relative;
   opacity: 0.9;
 }
-.img-wrap::after {
+.image::after {
   content: "";
   display: block;
-  /* padding-bottom: 100%; */
 }
 
-.img-wrap img {
-  /* position: absolute; */
+.image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -184,14 +189,14 @@ input[type="file"] {
 }
 
 /* STAR RATING STYLES */
-.course--stars {
+.stars {
   border: 0;
   margin: 20px 0 0;
   padding: 0;
   font-size: 100%;
 }
 
-.course--stars li {
+.stars li {
   float: left;
   list-style: none;
   width: 20%;
@@ -203,26 +208,22 @@ input[type="file"] {
   box-sizing: border-box;
 }
 
-.course--stars li:first-child {
+.stars li:first-child {
   margin-left: -2px;
 }
 
-.course--stars li:hover {
+.stars li:hover {
   cursor: pointer;
 }
 
-.course--stars .star {
+.stars .star {
   width: auto;
   height: 100%;
   fill: #3658a25f;
 }
 
-.course--stars .selected .star {
+.stars .selected .star {
   fill: #2d4f9a;
-}
-
-.course--reviews--form .course--stars {
-  margin-bottom: 10px;
 }
 
 .rating {
