@@ -7,7 +7,7 @@ const UploadForm = () => {
   const [title, setTitle] = useState("");
   const [error, setError] = useState(null);
   const types = ["image/png", "image/jpg", "image/jpeg", "image/heic"];
-  const [newRating, setRating] = useState(0);
+  const [rating, setRating] = useState(0);
 
   const changeHandlerText = (e) => {
     setTitle(e.target.value);
@@ -24,9 +24,9 @@ const UploadForm = () => {
     }
   };
 
-  const handleSetRating = (newRating) => {
-    setRating(newRating);
-    localStorage.setItem("rating", newRating);
+  const handleSetRating = (rating) => {
+    setRating(rating);
+    localStorage.setItem("rating", rating);
   };
 
   return (
@@ -49,7 +49,7 @@ const UploadForm = () => {
         />
         <input id="file-notes" type="textarea" placeholder="Smaksnotater ..." />
         <div className="starRating">
-          <StarRating rating={newRating} setRating={handleSetRating} />
+          <StarRating rating={rating} setRating={handleSetRating} />
         </div>
         <label htmlFor="file-upload" className="custom-file-upload">
           Legg til bilde
