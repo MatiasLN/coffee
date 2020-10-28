@@ -29,9 +29,12 @@ const useStorage = (file) => {
         const createdAt = timestamp();
         const title = localStorage.getItem("title");
         const star = localStorage.getItem("rating");
-        collectionRef.add({ url, createdAt, title, star });
+        const notes = localStorage.getItem("notes");
+        collectionRef.add({ url, createdAt, title, star, notes });
         setUrl(url);
         document.querySelector("form").style.display = "none";
+        document.querySelector(".backdrop").style.display = "none";
+        document.querySelector(".img-grid").style.display = "grid";
       }
     );
   }, [file]);

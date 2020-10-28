@@ -13,6 +13,11 @@ const UploadForm = () => {
     setTitle(e.target.value);
     localStorage.setItem("title", e.target.value);
   };
+
+  const changeHandlerTextarea = (e) => {
+    localStorage.setItem("notes", e.target.value);
+  };
+
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
@@ -29,38 +34,58 @@ const UploadForm = () => {
     localStorage.setItem("rating", rating);
   };
 
+  const handleClick = (e) => {
+    if (e.target.classList.contains("backdrop")) {
+      window.location.reload(false);
+    }
+  };
+
   return (
     <>
       <button
         className="addNewBtn"
         onClick={(e) => {
           document.querySelector("form").style.display = "flex";
+          document.querySelector(".backdrop").style.display = "block";
+          document.querySelector(".img-grid").style.display = "none";
         }}
       >
         Legg til ny kaffetype
       </button>
-      <form style={{ display: "none" }}>
-        <input
-          id="file-title"
-          type="text"
-          placeholder="Hva heter kaffetypen?"
-          onChange={changeHandlerText}
-          value={title}
-        />
-        <input id="file-notes" type="textarea" placeholder="Smaksnotater ..." />
-        <div className="starRating">
-          <StarRating rating={rating} setRating={handleSetRating} />
-        </div>
-        <label htmlFor="file-upload" className="custom-file-upload">
-          Legg til bilde
-        </label>
-        <input id="file-upload" type="file" onChange={changeHandler} />
-        <div className="output">
-          {error && <div className="error">{error}</div>}
-          {file && <div>Legger til {title} i databasen</div>}
-          {file && <ProgressBar file={file} setFile={setFile} />}
-        </div>
-      </form>
+      <div
+        className="backdrop"
+        onClick={handleClick}
+        style={{ display: "none" }}
+      >
+        <form style={{ display: "none" }}>
+          <input
+            id="file-title"
+            type="text"
+            placeholder="Hva heter kaffetypen?"
+            onChange={changeHandlerText}
+            value={title}
+          />
+          <textarea
+            id="file-notes"
+            rows={5}
+            cols={5}
+            placeholder="Smaksnotater ..."
+            onChange={changeHandlerTextarea}
+          />
+          <div className="starRating">
+            <StarRating rating={rating} setRating={handleSetRating} />
+          </div>
+          <label htmlFor="file-upload" className="custom-file-upload">
+            Legg til bilde
+          </label>
+          <input id="file-upload" type="file" onChange={changeHandler} />
+          <div className="output">
+            {error && <div className="error">{error}</div>}
+            {file && <div>Legger til {title} i databasen</div>}
+            {file && <ProgressBar file={file} setFile={setFile} />}
+          </div>
+        </form>
+      </div>
     </>
   );
 };
