@@ -204,6 +204,13 @@ input[type="file"] {
   grid-template-rows: 100px 90px 100px;
 }
 
+@media only screen and (min-width: 800px) {
+  .modal-content {
+    grid-template-rows: auto;
+    grid-template-columns: inherit;
+  }
+}
+
 .modal-container h2 {
   align-self: center;
   font-size: 2.2rem;
@@ -214,6 +221,7 @@ input[type="file"] {
 @media only screen and (min-width: 800px) {
   .modal-container h2 {
     grid-row: auto;
+    grid-column: 2/2;
   }
 }
 
