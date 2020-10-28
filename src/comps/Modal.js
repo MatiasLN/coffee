@@ -8,6 +8,7 @@ const Modal = ({ data, setData }) => {
   const handleClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
       setData(null);
+      window.location.reload(false);
     }
   };
 
