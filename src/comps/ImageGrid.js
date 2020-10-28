@@ -8,8 +8,13 @@ const ImageGrid = ({ data, setData }) => {
   return (
     <div className="img-grid">
       {docs &&
-        docs.map((doc) => (
-          <ImageItem key={doc.id} doc={doc} data={data} setData={setData} />
+        docs.map((singleItem) => (
+          <ImageItem
+            key={singleItem.id}
+            singleItem={singleItem}
+            data={data}
+            setData={setData}
+          />
         ))}
     </div>
   );

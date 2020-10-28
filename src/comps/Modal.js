@@ -5,7 +5,6 @@ import Image from "./Image";
 
 const Modal = ({ data, setData }) => {
   const [rating, setRating] = useState(data.star);
-  console.log(data);
   const handleClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
       setData(null);
