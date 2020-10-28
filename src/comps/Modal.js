@@ -27,12 +27,14 @@ const Modal = ({ data, setData }) => {
             <Image data={data.url} />
           </div>
         )}
-        {data.title && <h2>{data.title}</h2>}
-        {data.star && (
-          <div className="modal-stars">
-            {<StarRating rating={rating} setRating={handleSetRating} />}
-          </div>
-        )}
+        <div className="modal-content">
+          {data.title && <h2>{data.title}</h2>}
+          {data.star && (
+            <div className="modal-stars">
+              {<StarRating rating={rating} setRating={handleSetRating} />}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
