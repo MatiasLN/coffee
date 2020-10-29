@@ -36,7 +36,9 @@ const UploadForm = () => {
 
   const handleClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
-      window.location.reload(false);
+      document.querySelector("form").style.display = "none";
+      document.querySelector(".img-grid").style.display = "grid";
+      document.querySelector(".backdrop").style.display = "none";
     }
   };
 
