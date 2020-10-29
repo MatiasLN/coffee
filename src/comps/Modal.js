@@ -3,13 +3,12 @@ import StarRating from "./StarRating";
 import { projectFirestore } from "../firebase/config";
 import Image from "./Image";
 
-const Modal = ({ data, setData }) => {
-  const [rating, setRating] = useState(data.star);
+const Modal = ({ data, setData, initRating, rating, setRating }) => {
   const [notes, setNotes] = useState(data.notes);
+  [rating, setRating] = useState(data.star);
   const handleClick = (e) => {
     if (e.target.classList.contains("backdrop")) {
       setData(null);
-      window.location.reload(false);
     }
   };
 
@@ -22,6 +21,7 @@ const Modal = ({ data, setData }) => {
 
   const handleSetRating = (rating) => {
     setRating(rating);
+    initRating(rating);
 
     const collectionRef = projectFirestore.collection("images").doc(data.id);
     collectionRef.update({ star: rating });

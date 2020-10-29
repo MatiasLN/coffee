@@ -3,8 +3,7 @@ import StarRating from "./StarRating";
 import { projectFirestore } from "../firebase/config";
 import Image from "./Image";
 
-const ImageItem = ({ data, setData }) => {
-  const [rating, setRating] = useState(data.star);
+const ImageItem = ({ data, setData, rating, setRating }) => {
   const [id, setCurrentId] = useState(data.id);
 
   const handleSetRating = (rating) => {
