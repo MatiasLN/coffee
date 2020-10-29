@@ -3,9 +3,9 @@ import StarRating from "./StarRating";
 import { projectFirestore } from "../firebase/config";
 import Image from "./Image";
 
-const ImageItem = ({ singleItem, setData }) => {
-  const [rating, setRating] = useState(singleItem.star);
-  const [id, setCurrentId] = useState(singleItem.id);
+const ImageItem = ({ data, setData }) => {
+  const [rating, setRating] = useState(data.star);
+  const [id, setCurrentId] = useState(data.id);
 
   const handleSetRating = (rating) => {
     setRating(rating);
@@ -18,21 +18,21 @@ const ImageItem = ({ singleItem, setData }) => {
     <div className="coffeItem">
       <div
         className="image"
-        key={singleItem.id}
+        key={data.id}
         onClick={() => {
-          setCurrentId(singleItem.id);
-          setData(singleItem);
+          setCurrentId(data.id);
+          setData(data);
         }}
       >
-        <Image data={singleItem.url} />
+        <Image data={data.url} />
       </div>
-      <h2>{singleItem.title}</h2>
+      <h2>{data.title}</h2>
       <div
         className="rating"
         onClick={() => {
-          setCurrentId(singleItem.id);
+          setCurrentId(data.id);
         }}
-        data={singleItem.id}
+        data={data.id}
       >
         <StarRating rating={rating} setRating={handleSetRating} />
       </div>
