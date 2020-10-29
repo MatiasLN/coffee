@@ -42,6 +42,16 @@ const UploadForm = () => {
     }
   };
 
+  const onChangeHandler = (event) => {
+    const { name, value } = event.currentTarget;
+
+    if (name === "title") {
+      localStorage.setItem("title", value);
+    } else if (name === "notes") {
+      localStorage.setItem("notes", value);
+    }
+  };
+
   return (
     <>
       <button
@@ -63,16 +73,18 @@ const UploadForm = () => {
           <input
             id="file-title"
             type="text"
+            name="title"
             placeholder="Hva heter kaffetypen?"
-            onChange={changeHandlerText}
-            value={title}
+            onChange={(event) => onChangeHandler(event)}
+            // value={value}
           />
           <textarea
             id="file-notes"
+            name="notes"
             rows={5}
             cols={5}
             placeholder="Smaksnotater ..."
-            onChange={changeHandlerTextarea}
+            onChange={(event) => onChangeHandler(event)}
           />
           <div className="starRating">
             <StarRating rating={rating} setRating={handleSetRating} />
@@ -83,7 +95,6 @@ const UploadForm = () => {
           <input id="file-upload" type="file" onChange={changeHandler} />
           <div className="output">
             {error && <div className="error">{error}</div>}
-            {file && <div>Legger til {title} i databasen</div>}
             {file && <ProgressBar file={file} setFile={setFile} />}
           </div>
         </form>
