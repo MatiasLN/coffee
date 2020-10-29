@@ -14,7 +14,6 @@ const Modal = ({ data, setData, initRating, rating, setRating }) => {
 
   const changeHandlerTextarea = (e) => {
     setNotes(e.target.value);
-
     const collectionRef = projectFirestore.collection("images").doc(data.id);
     collectionRef.update({ notes: notes });
   };
@@ -22,7 +21,6 @@ const Modal = ({ data, setData, initRating, rating, setRating }) => {
   const handleSetRating = (rating) => {
     setRating(rating);
     initRating(rating);
-
     const collectionRef = projectFirestore.collection("images").doc(data.id);
     collectionRef.update({ star: rating });
   };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles/sass/bundle.scss";
 import ImageGrid from "./comps/ImageGrid";
 import Logo from "./comps/Logo";
 import Modal from "./comps/Modal";

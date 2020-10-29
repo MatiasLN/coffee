@@ -1,0 +1,28 @@
+/* image grid styles */
+.img-grid {
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+@media only screen and (min-width: 800px) {
+  .img-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.image {
+  position: relative;
+  opacity: 0.9;
+}
+.image::after {
+  content: "";
+  display: block;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
