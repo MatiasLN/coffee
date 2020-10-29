@@ -4,21 +4,11 @@ import StarRating from "./StarRating";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
-  const [title, setTitle] = useState("");
   const [error, setError] = useState(null);
   const types = ["image/png", "image/jpg", "image/jpeg", "image/heic"];
   const [rating, setRating] = useState(0);
 
-  const changeHandlerText = (e) => {
-    setTitle(e.target.value);
-    localStorage.setItem("title", e.target.value);
-  };
-
-  const changeHandlerTextarea = (e) => {
-    localStorage.setItem("notes", e.target.value);
-  };
-
-  const changeHandler = (e) => {
+  const handleUpload = (e) => {
     let selected = e.target.files[0];
     if (selected && types.includes(selected.type)) {
       setFile(selected);
@@ -34,15 +24,17 @@ const UploadForm = () => {
     localStorage.setItem("rating", rating);
   };
 
-  const handleClick = (e) => {
+  const handleExit = (e) => {
     if (e.target.classList.contains("backdrop")) {
       document.querySelector("form").style.display = "none";
       document.querySelector(".img-grid").style.display = "grid";
       document.querySelector(".backdrop").style.display = "none";
+      document.querySelector("#file-title").value = "";
+      document.querySelector("#file-notes").value = "";
     }
   };
 
-  const onChangeHandler = (event) => {
+  const handleInput = (event) => {
     const { name, value } = event.currentTarget;
 
     if (name === "title") {
@@ -66,7 +58,7 @@ const UploadForm = () => {
       </button>
       <div
         className="backdrop"
-        onClick={handleClick}
+        onClick={handleExit}
         style={{ display: "none" }}
       >
         <form style={{ display: "none" }}>
@@ -75,8 +67,7 @@ const UploadForm = () => {
             type="text"
             name="title"
             placeholder="Hva heter kaffetypen?"
-            onChange={(event) => onChangeHandler(event)}
-            // value={value}
+            onChange={(event) => handleInput(event)}
           />
           <textarea
             id="file-notes"
@@ -84,7 +75,7 @@ const UploadForm = () => {
             rows={5}
             cols={5}
             placeholder="Smaksnotater ..."
-            onChange={(event) => onChangeHandler(event)}
+            onChange={(event) => handleInput(event)}
           />
           <div className="starRating">
             <StarRating rating={rating} setRating={handleSetRating} />
@@ -92,7 +83,7 @@ const UploadForm = () => {
           <label htmlFor="file-upload" className="custom-file-upload">
             Legg til bilde
           </label>
-          <input id="file-upload" type="file" onChange={changeHandler} />
+          <input id="file-upload" type="file" onChange={handleUpload} />
           <div className="output">
             {error && <div className="error">{error}</div>}
             {file && <ProgressBar file={file} setFile={setFile} />}
