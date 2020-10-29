@@ -8,17 +8,20 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.22.1",
+    "node-sass-chokidar": "^1.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build-css",
     "deploy": "gh-pages -b gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "react-scripts start watch-css",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/ --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/styles/sass -o src/styles/css --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
