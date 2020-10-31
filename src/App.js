@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { UserProvider } from "./context/UserContext";
 import ImageGrid from "./comps/ImageGrid";
 import Logo from "./comps/Logo";
 import Modal from "./comps/Modal";
 import Title from "./comps/Title";
 import UploadForm from "./comps/UploadForm";
+import SignIn from "./comps/SignIn";
+import User from "./comps/User";
 
 function App() {
   const newRating = (data) => {
@@ -16,27 +19,47 @@ function App() {
   const [rating, setRating] = useState(newRating);
 
   return (
-    <div className="App">
-      <Logo />
-      <Title />
-      <UploadForm />
-      <ImageGrid
-        data={data}
-        setData={setData}
-        rating={rating}
-        setRating={setRating}
-      />
-      {data && (
-        <Modal
+    <UserProvider>
+      <div className="App">
+        <Logo />
+        <User />
+        <SignIn />
+        <Title />
+        <UploadForm />
+        <ImageGrid
           data={data}
           setData={setData}
-          initRating={newRating}
           rating={rating}
           setRating={setRating}
         />
-      )}
-    </div>
+        {data && (
+          <Modal
+            data={data}
+            setData={setData}
+            initRating={newRating}
+            rating={rating}
+            setRating={setRating}
+          />
+        )}
+      </div>
+    </UserProvider>
   );
 }
 
 export default App;
+
+// import React from "react";
+// import { UserProvider } from "./context/UserContext";
+// import MainContent from "./MainContent";
+
+// function App() {
+//   return (
+//     <UserProvider>
+//       <div className="App">
+//         <MainContent />
+//       </div>
+//     </UserProvider>
+//   );
+// }
+
+// export default App;
