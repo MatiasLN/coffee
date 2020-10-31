@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d719f87595ee5f54388249bf8ca633ca",
+    "revision": "561048796bc5d54519a522a02e133709",
     "url": "/coffee/index.html"
   },
   {
-    "revision": "0b202eb32150b813a103",
-    "url": "/coffee/static/css/main.6d4c96b1.chunk.css"
+    "revision": "5f987f711b6a3d10f4f8",
+    "url": "/coffee/static/css/main.676303e9.chunk.css"
   },
   {
-    "revision": "262ca98738f8325570bc",
-    "url": "/coffee/static/js/2.c5c8d02b.chunk.js"
+    "revision": "0e836f7c1eab32fd0dae",
+    "url": "/coffee/static/js/2.787bf605.chunk.js"
   },
   {
     "revision": "40f7fa7ab5996d1e53a916b11d456d6f",
-    "url": "/coffee/static/js/2.c5c8d02b.chunk.js.LICENSE.txt"
+    "url": "/coffee/static/js/2.787bf605.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0b202eb32150b813a103",
-    "url": "/coffee/static/js/main.9b6d8570.chunk.js"
+    "revision": "5f987f711b6a3d10f4f8",
+    "url": "/coffee/static/js/main.e23c81ed.chunk.js"
   },
   {
     "revision": "e117c09901fa6bdb766b",
