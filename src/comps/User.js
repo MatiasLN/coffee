@@ -6,10 +6,20 @@ const User = () => {
   user = user.user;
 
   return (
-    <div className="user">
-      <img src={user.photoURL} alt={user.photoURL} />
-      {user ? <p>Hei {user.displayName}</p> : ""}
-    </div>
+    <>
+      {user ? (
+        <>
+          <div className="userIsLoggedIn">
+            <img src={user.photoURL} alt={user.photoURL} />
+            <p>Hei {user.displayName}</p>
+          </div>
+
+          <div className="userPage">
+            <p>Hello</p>
+          </div>
+        </>
+      ) : null}
+    </>
   );
 };
 
