@@ -33,6 +33,26 @@ body {
   margin: 20px auto 0;
 }
 
+.loginBtn {
+  display: block;
+  margin: 50px auto 0;
+  padding: 10px 15px;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-family: "Noto Serif";
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  border: 1px solid var(--primary);
+  background: none;
+  color: var(--primary);
+  cursor: pointer;
+}
+
 /* upload form styles */
 form {
   position: absolute;
@@ -346,8 +366,6 @@ input[type="file"] {
   position: absolute;
   top: 15px;
   right: 15px;
-  display: flex;
-  flex-direction: row-reverse;
 }
 
 .user p {
@@ -355,6 +373,12 @@ input[type="file"] {
 }
 
 @media only screen and (min-width: 800px) {
+  .user {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
   .user p {
     display: block;
     font-size: 0.8rem;
@@ -364,7 +388,7 @@ input[type="file"] {
 
 .user img {
   border-radius: 50%;
-  max-width: 50px;
+  max-width: 70px;
   width: 100%;
   height: auto;
   display: block;

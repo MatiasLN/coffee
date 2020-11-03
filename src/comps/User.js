@@ -8,7 +8,7 @@ const User = () => {
   return (
     <div className="user">
       <img src={user.photoURL} alt={user.photoURL} />
-      <p>Hei {user.displayName}</p>
+      {user ? <p>Hei {user.displayName}</p> : ""}
     </div>
   );
 };

@@ -8,13 +8,16 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState("");
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
-      const { displayName, email, photoURL, uid } = user;
-      setUser({
-        displayName,
-        email,
-        photoURL,
-        uid,
-      });
+      if (user) {
+        const { displayName, email, photoURL, uid } = user;
+
+        setUser({
+          displayName,
+          email,
+          photoURL,
+          uid,
+        });
+      }
     });
   }, []);
 
