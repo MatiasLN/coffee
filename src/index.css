@@ -366,6 +366,7 @@ input[type="file"] {
   position: absolute;
   top: 15px;
   right: 15px;
+  overflow: hidden;
 }
 
 .userIsLoggedIn p {
@@ -401,10 +402,10 @@ input[type="file"] {
 }
 
 .userPage {
-  position: absolute;
+  position: fixed;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
-  height: 100vh;
+  height: 100%;
   width: 290px;
   padding: 15px;
   margin-right: -350px;
@@ -413,13 +414,8 @@ input[type="file"] {
   right: 0;
   z-index: 999;
   transition-duration: 1s;
+  overflow: hidden;
 }
-
-/* @media only screen and (min-width: 800px) {
-  .userPage {
-    width: 290px;
-  }
-} */
 
 .show {
   margin-right: 0 !important;
@@ -430,12 +426,14 @@ input[type="file"] {
 
 nav {
   position: absolute;
-  /* top: 10px;
-  right: -100px; */
   top: 20px;
   right: 20px;
   z-index: 999999;
   width: 80px;
+}
+
+.active {
+  position: fixed;
 }
 
 .logOutBtn {
