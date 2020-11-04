@@ -26,8 +26,8 @@ export const auth = firebase.auth();
 export const signInWithGoogle = () => {
   auth
     .signInWithPopup(googleProvider)
-    .then((res) => {
-      console.log(res.user);
+    .then(() => {
+      console.log("logged in");
     })
     .catch((error) => {
       console.log(error.message);
@@ -39,6 +39,7 @@ export const logOut = () => {
     .signOut()
     .then(() => {
       console.log("logged out");
+      window.location.reload(false);
     })
     .catch((error) => {
       console.log(error.message);

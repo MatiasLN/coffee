@@ -32,7 +32,14 @@ const User = () => {
             <div className="userContent">
               <img src={user.photoURL} alt={user.photoURL} />
               <p>Hei {user.displayName}</p>
-              <button className="logOutBtn">Logg ut</button>
+              <button
+                className="logOutBtn"
+                onClick={() => {
+                  logOut();
+                }}
+              >
+                Logg ut
+              </button>
             </div>
           </div>
         </>
